@@ -55,6 +55,7 @@ jobs:
         script: |
           sudo docker rm -f $(docker ps -qa)
           sudo docker pull ${{ secrets.DOCKER_REPO }}/sample
-          pwd
-          docker-compose up -d
-          docker image prune -f
+          sudo docker run -p 8080:8080 ${{ secrets.DOCKER_REPO }}/sample
+          
+          ##docker-compose up -d
+          ##docker image prune -f
