@@ -34,10 +34,15 @@ jobs:
         cd ./src/main/resources
         touch ./application.yml
         echo "${{ secrets.PROPERTIES }}" > ./application.yml
-        cat application.yml
       shell: bash
       
     - name: Build with Gradle
-      uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
-      with:
-        arguments: build
+      run: ./gradlew build -x test
+    
+    - name: Docker build & push
+      run: |
+        docker login -u ${{ secrets.DOCKER_USERNAME }}-p ${{ secrets.DOCKER_PASSWORD }}
+        docker build -f Dockerfile .
+        docker images
+        docker push ${{ secrets.DOCKER_REPO }}/sample
+    
