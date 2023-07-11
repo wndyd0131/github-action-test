@@ -1,12 +1,20 @@
 package hello.core.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@Slf4j
 public class SampleController {
     @RequestMapping("/sample")
     public String sample() {
-        return "Sample~~";
+        System.out.println("Hi");
+        return "Sample";
     }
+
+//    @GetMapping("/sample/{userId}")
+//    public String getUserId(@PathVariable String userId) {
+//        log.info("userId = {}", userId);
+//        return userId;
+//    }
 }

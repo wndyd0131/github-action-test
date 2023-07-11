@@ -14,6 +14,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration //Configuration이 싱글톤을 지원
 public class AppConfig {
+    
     @Bean
     public MemberRepository memberRepository(){
         return new MemoryMemberRepository();
