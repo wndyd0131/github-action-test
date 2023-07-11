@@ -9,7 +9,7 @@ public class SampleController {
     @RequestMapping("/sample")
     public String sample() {
         System.out.println("Hi");
-        return "Sample!!";
+        return "Sample!!!";
     }
 
 //    @GetMapping("/sample/{userId}")
